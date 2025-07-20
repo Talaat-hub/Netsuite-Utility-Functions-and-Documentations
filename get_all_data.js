@@ -1,3 +1,7 @@
+/*
+@param {rs} - search object created by search.create()
+*/
+
 const getAllData = (rs) => {
     try {
         const results = rs.run();
