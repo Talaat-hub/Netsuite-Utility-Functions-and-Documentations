@@ -1,5 +1,13 @@
 /*
 @param {msgText} - The error message as a STRING
+
+---
+
+## Example Usage
+
+if(!subsidiary){
+showTopError("Please choose a subsidiary!"); Error message
+}
 */
 
 const showTopError = (msgText) => {
