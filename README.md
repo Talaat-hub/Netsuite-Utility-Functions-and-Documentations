@@ -36,7 +36,10 @@ Can be found inside each function
 
 ---
 
-Created by [Mahmoud Talaat](https://www.linkedin.com/in/mahmoudtalaat21/) – NetSuite Developer
+## Authors
+
+[Mahmoud Talaat](https://www.linkedin.com/in/mahmoudtalaat21/) – NetSuite Developer
+[Kirollos Ayman](https://www.linkedin.com/in/keroloseid/) – NetSuite Developer
 
 Feel free to connect or contribute!
 
