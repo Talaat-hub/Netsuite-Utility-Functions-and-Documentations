@@ -1,5 +1,17 @@
 /*
 @param {rs} - search object created by search.create()
+
+---
+
+## Example Usage
+
+const search_object = search.create({
+type: 'employee',
+filters: [ ........
+
+});
+
+const results = getAllData(search_object) // more than 1000 records can be held
 */
 
 const getAllData = (rs) => {
