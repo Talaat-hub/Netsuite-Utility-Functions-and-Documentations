@@ -20,11 +20,11 @@ These utilities are designed to speed up development, promote code consistency, 
 
 │
 
-├── get_all_data.js # Gets more than 1000 records from the search.create() object
+├── [get_all_data.js](https://github.com/Talaat-hub/Netsuite-Utility-functions/blob/main/get_all_data.js) # Gets more than 1000 records from the search.create() object
 
-├── show_top_error.js # Shows the red netsuite error at top
+├── [show_top_error.js](https://github.com/Talaat-hub/Netsuite-Utility-functions/blob/main/show_top_error.js) # Shows the red netsuite error at top
 
-├── amount_to_words.js # Convert amount and it's subuint to words with currency
+├── [amount_to_words.js](https://github.com/Talaat-hub/Netsuite-Utility-functions/blob/main/amount_to_words.js) # Convert amount and it's subuint to words with currency
 
 └── README.md
 
