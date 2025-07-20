@@ -24,6 +24,8 @@ These utilities are designed to speed up development, promote code consistency, 
 
 ├── show_top_error.js # Shows the red netsuite error at top
 
+├── amount_to_words.js # Convert amount and it's subuint to words with currency
+
 └── README.md
 
 ---
