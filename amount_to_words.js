@@ -9,6 +9,8 @@
 cosnt amount = record.getValue('amount'); // 1923.86
 const subsidiary = record.getValue('subsidiary'); // United Arab Emirates
 const amountWords = amount_to_words(amount); // One Thousand Nine Hundred Twenty Three UAE Dirhams and Eighty Six fils
+
+## PLEASE NOTE THAT YOU CAN EDIT OR ADD THE COUNTRY AND IT'S CURRENCY BASED ON YOUR CONDITION
 */
 
 const amount_to_words = (amount, countryName) => {
