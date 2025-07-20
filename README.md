@@ -17,9 +17,13 @@ These utilities are designed to speed up development, promote code consistency, 
 ## Folder Structure
 
 /Netsuite-Utility-functions/
+
 │
+
 ├── get_all_data.js # Gets more than 1000 records from the search.create() object
+
 ├── show_top_error.js # Shows the red netsuite error at top
+
 └── README.md
 
 ---
@@ -31,6 +35,7 @@ Can be found inside each function
 ---
 
 Created by [Mahmoud Talaat](https://www.linkedin.com/in/mahmoudtalaat21/) – NetSuite Developer
+
 Feel free to connect or contribute!
 
 Let me know if your repo has special focus (e.g., SuiteQL, OAuth, or CSV imports) and I’ll tailor it even more!
