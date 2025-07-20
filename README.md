@@ -40,4 +40,4 @@ Created by [Mahmoud Talaat](https://www.linkedin.com/in/mahmoudtalaat21/) – Ne
 
 Feel free to connect or contribute!
 
-Let me know if your repo has special focus (e.g., SuiteQL, OAuth, or CSV imports) and I’ll tailor it even more! try
+Let me know if your repo has special focus (e.g., SuiteQL, OAuth, or CSV imports) and I’ll tailor it even more!
