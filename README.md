@@ -39,6 +39,7 @@ Can be found inside each function
 ## Authors
 
 [Mahmoud Talaat](https://www.linkedin.com/in/mahmoudtalaat21/) – NetSuite Developer
+
 [Kirollos Ayman](https://www.linkedin.com/in/keroloseid/) – NetSuite Developer
 
 Feel free to connect or contribute!
