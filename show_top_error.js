@@ -1,0 +1,19 @@
+/*
+@param {msgText} - The error message as a STRING
+*/
+
+const showTopError = (msgText) => {
+    try {
+        const errorMessage = message.create({
+            title: "Validation Error",
+            message: msgText,
+            type: message.Type.ERROR
+        });
+
+        errorMessage.show({
+            duration: 10000 // 10 seconds
+        });
+    } catch (errshowTopError) {
+        log.debug('errshowTopError', errshowTopError);
+    }
+};
