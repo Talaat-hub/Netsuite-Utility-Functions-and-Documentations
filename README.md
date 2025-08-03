@@ -44,4 +44,4 @@ Can be found inside each function
 
 Feel free to connect or contribute!
 
-Let me know if your repo has special focus (e.g., SuiteQL, OAuth, or CSV imports) and I’ll tailor it even more!
+Let me know if you have special focus (e.g., SuiteQL, OAuth, or CSV imports) and I’ll tailor it even more!
