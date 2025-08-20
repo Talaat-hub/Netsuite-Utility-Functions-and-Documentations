@@ -26,6 +26,8 @@ These utilities are designed to speed up development, promote code consistency, 
 
 ├── [amount_to_words.js](https://github.com/Talaat-hub/Netsuite-Utility-functions/blob/main/amount_to_words.js) # Convert amount and it's subuint to words with currency
 
+├── [SDF CookBook.md](https://github.com/Talaat-hub/Netsuite-Utility-functions/blob/main/amount_to_words.js) # SuiteCloud Development Framework (useful vscode tool for netsuite)
+
 └── README.md
 
 ---
