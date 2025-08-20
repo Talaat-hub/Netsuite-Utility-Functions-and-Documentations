@@ -16,7 +16,11 @@ These utilities are designed to speed up development, promote code consistency, 
 
 ## Folder Structure
 
-/Netsuite-Utility-functions/
+/Netsuite-Utility-Functions-and-Documentations/
+
+│
+
+├── [Utility Functions]()
 
 │
 
