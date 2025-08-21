@@ -543,11 +543,11 @@ The primary goal of this Suitelet is to provide a practical, working example of 
 
 Please check it out and test it for yourself :
 
-[Suitelet] (https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/ai_sl_using_https.js)
+[Suitelet](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/ai_sl_using_https.js)
 
-[ClientScript] (https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/ai_cs_using_https.js)
+[ClientScript](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/ai_cs_using_https.js)
 
-[UserEvent] (https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/ai_ue_using_https.js)
+[UserEvent](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/ai_ue_using_https.js)
 
 ## Note
 
