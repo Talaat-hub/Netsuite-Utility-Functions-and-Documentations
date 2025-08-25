@@ -48,7 +48,7 @@ define(['N/ui/serverWidget', 'N/https', 'N/log'], (serverWidget, https, log) => 
                     try {
 
                         // IMPORTANT: Replace 'YOUR_API_KEY' with your actual key from Google AI Studio.
-                        const apiKey = 'YOUR-API-KEY';
+                        const apiKey = 'AIzaSyDMdGeChbs5c_oybVZtkIuw7fuzyCSKOMQ';
                         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
                         const headers = {
