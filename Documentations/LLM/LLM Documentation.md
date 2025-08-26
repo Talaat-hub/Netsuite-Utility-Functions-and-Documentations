@@ -542,8 +542,11 @@ define(['N/search', 'N/record', 'N/llm', 'N/log'], (search, record, llm, log) =>
 The primary goal of this Suitelet is to provide a practical, working example of how to connect NetSuite to any external AI or Large Language Model (LLM) service, Since NetSuite does not have a native N/llm module, this script demonstrates the standard, real-world method for achieving this integration using web technologies.
 
 Please check it out and test it for yourself :
+
 [Suitelet](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/ai_sl_using_https.js)
+
 [ClientScript](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/ai_cs_using_https.js)
+
 [UserEvent](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/ai_ue_using_https.js)
 
 ## Note
