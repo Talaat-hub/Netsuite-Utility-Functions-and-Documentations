@@ -29,13 +29,21 @@ Press ctrl + Shift + P , then choose upload file
 ## TO CREATE A SCRIPT AND UPLOAD IT
 
 1 - Press ctrl + Shift + P
+
 2 - Create suitescript file
+
 3 - Choose suitescript type
+
 4 - (OPTIONAL) Add modules
+
 5 - write the file name and choose its directory on Netsuite
+
 6- Press ctrl + Shift + P again
+
 7 - Choose add dependency reference to the manifest
+
 8 - Create XML file in Objects folder for script deployment
+
 9 - Deploy the script, E.X:
 
                             <clientScript scriptid="customscript_az_svcs_cs_mt_sdf_test">
@@ -71,6 +79,7 @@ Press ctrl + Shift + P , then choose upload file
                             </manifest>
 
 11 - Press ctrl + Shift + P, Upload the script to file cabient before deployment
+
 12 - Press ctrl + Shift + P, choose deploy project
 
 ## YOU MAYBE, JUST MAYBE, NEED TO APPLY ROLES FOR THE SCRIPT TO RUN MANUALLY FROM NETSUITE
