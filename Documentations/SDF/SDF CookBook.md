@@ -47,12 +47,12 @@ Press ctrl + Shift + P , then choose upload file
 9 - Deploy the script, E.X:
 
 ```
-    <clientScript scriptid="customscript_az_svcs_cs_mt_sdf_test">
+    <clientScript scriptid="customscript_sdf_test">
         <name>AZ SVCS CS MT SDF Test</name>
         <notifyowner>F</notifyowner>
-        <scriptfile>[/SuiteScripts/az_svcs_cs_mt_sdf_test.js]</scriptfile>
+        <scriptfile>[/SuiteScripts/sdf_test.js]</scriptfile>
         <scriptdeployments>
-            <scriptdeployment scriptid="customdeploy_az_svcs_cs_mt_sdf_test">
+            <scriptdeployment scriptid="customdeploy_sdf_test">
                 <isdeployed>T</isdeployed>
                 <loglevel>DEBUG</loglevel>
                 <recordtype>[customrecord_az_emp_mahmoud]</recordtype>
@@ -76,7 +76,7 @@ Press ctrl + Shift + P , then choose upload file
                 <object>customrecord_az_emp_mahmoud</object> // Target record
             </objects>
             <files>
-                <file>/SuiteScripts/az_svcs_cs_mt_sdf_test.js</file> // File Path
+                <file>/SuiteScripts/sdf_test.js</file> // File Path
             </files>
         </dependencies>
     </manifest>
@@ -92,7 +92,7 @@ Press ctrl + Shift + P , then choose upload file
 
 ```
     <scriptdeployments>
-        <scriptdeployment scriptid="customdeploy_az_svcs_cs_mt_sdf_test">
+        <scriptdeployment scriptid="customdeploy_sdf_test">
             <isdeployed>T</isdeployed>
             <loglevel>DEBUG</loglevel>
             <recordtype>[customrecord_az_emp_mahmoud]</recordtype>
@@ -102,6 +102,10 @@ Press ctrl + Shift + P , then choose upload file
         </scriptdeployment>
     </scriptdeployments>
 ```
+
+### Note : In our example, we worked on clientscript, but what if we want to deploy user event script ?
+
+Simple, instead of the <clientScript> tag, we use <usereventscript> tag, same logic applied to all suitescript types.
 
 ---
 
