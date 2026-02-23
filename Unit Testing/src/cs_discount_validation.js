@@ -2,11 +2,11 @@
  * @NApiVersion 2.1
  * @NScriptType ClientScript
  */
-define(['N/currentRecord', 'N/ui/dialog'], function (currentRecord, dialog) {
+define(['N/ui/dialog'], function (dialog) {
 
     const saveRecord = (context) => {
         try {
-            const rec = context.currentRecord || currentRecord.get();
+            const rec = context.currentRecord;
 
             const subtotal = rec.getValue({ fieldId: 'subtotal' }) || 0;
             const discountAmount = rec.getValue({ fieldId: 'discountamount' }) || 0;

@@ -5,23 +5,24 @@
  */
 
 // Step 1: Mocking modules. Note we test currentRecord instead of record for client scripts
-jest.mock('N/currentRecord');
 jest.mock('N/ui/dialog');
-jest.mock('N/log');
 
-const currentRecord = require('N/currentRecord');
 const dialog = require('N/ui/dialog');
-const log = require('N/log');
 
 let saveRecord;
+
+let logMock = {
+    debug: jest.fn(),
+    error: jest.fn()
+}
 
 describe('Client Script - Discount Validation', () => {
 
     // Step 2: Setup script
     beforeAll(() => {
-        global.log = log; // Ensure log is available even if not imported in the script
+        global.log = logMock; // Ensure log is available even if not imported in the script
         global.define = (deps, factory) => {
-            const mod = factory(currentRecord, dialog, log);
+            const mod = factory(dialog);
             saveRecord = mod.saveRecord;
         };
         require('../src/cs_discount_validation');
@@ -103,11 +104,8 @@ describe('Client Script - Discount Validation', () => {
     });
 
     test('should handle try/catch error gracefully', () => {
-        // Trigger an error by making currentRecord.get throw
-        currentRecord.get.mockImplementationOnce(() => {
-            throw new Error('Fake error');
-        });
-
+        // Trigger an error by passing an invalid context (empty object)
+        // This will cause an error when the script tries to access context.currentRecord.getValue
         saveRecord({});
 
         // Assertion: Check if log.debug was called with the error label
