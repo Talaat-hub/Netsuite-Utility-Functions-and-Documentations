@@ -153,4 +153,4 @@ In our case we use userevent and we want to refine the default ones, I will show
 
 Feel free to connect or contribute!
 
-Let me know if you have special focus (e.g., SuiteQL, OAuth, or CSV imports) and I’ll tailor it even more!
+Let me know if you have special focus and I’ll tailor it even more!

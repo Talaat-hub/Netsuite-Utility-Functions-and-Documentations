@@ -36,17 +36,23 @@ These utilities are designed to speed up development, promote code consistency, 
 
 │
 
-├── [LLM](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Documentations/LLM) # Talks about N/llm module
+├── [LLM](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Documentations/LLM) # Documentation and examples for LLM integrations
 
 │
 
-├── [ai_cs_using_https.js](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Documentations/LLM/ai_cs_using_https.js) 
+├── [LLM in Netsuite.md](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/LLM%20in%20Netsuite.md) # Primary documentation for native N/llm module
 
-├── [ai_sl_using_https.js](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Documentations/LLM/ai_sl_using_https.js)
+├── [ue_mt_llm_model.js](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/ue_mt_llm_model.js) # Practical User Event script using native N/llm
 
-├── [ai_ue_using_https.js](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Documentations/LLM/ai_ue_using_https.js)
+├── [Old Documentation](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Documentations/LLM/Old%20Documentation) # Hypothetical older documentation
 
-└── [LLM Documentation.md](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Documentations/LLM/LLM%20Documentation.md)
+│   ├── [ai_cs_using_https.js](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/Old%20Documentation/ai_cs_using_https.js) 
+
+│   ├── [ai_sl_using_https.js](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/Old%20Documentation/ai_sl_using_https.js)
+
+│   ├── [ai_ue_using_https.js](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/Old%20Documentation/ai_ue_using_https.js)
+
+│   └── [LLM Documentation.md](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/Old%20Documentation/LLM%20Documentation.md)
 
 │
 
