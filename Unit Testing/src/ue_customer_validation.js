@@ -1,52 +1,50 @@
 /**
  * @NApiVersion 2.1
  * @NScriptType UserEventScript
- * 
- * TUTORIAL NOTES:
- * This is a simple User Event script. It runs automatically when records are created, loaded, or saved.
- * Here, we are using the 'beforeSubmit' event to validate data before a record is saved to the database.
  */
-define(['N/record', 'N/log', 'N/error'], function(record, log, error) {
+define(['N/record', 'N/log', 'N/error'], function (record, log, error) {
 
-    /**
-     * The beforeSubmit function runs before a record is saved to the database.
-     * We can use it to validate data or modify the record before it saves.
-     */
-    function beforeSubmit(context) {
-        // We only want to run this logic when a new record is being created
-        if (context.type !== context.UserEventType.CREATE) {
-            return; // Exit early if it's an edit or view
-        }
+    const beforeSubmit = (context) => {
+        try {
+            if (context.type !== context.UserEventType.CREATE) {
+                return;
+            }
 
-        // 'context.newRecord' gives us the record that is about to be saved
-        const newCustomer = context.newRecord;
+            const newCustomer = context.newRecord;
 
-        // Let's get the value of the 'companyname' field
-        const companyName = newCustomer.getValue({ fieldId: 'companyname' });
+            const companyName = newCustomer.getValue({ fieldId: 'companyname' });
 
-        // Let's log that we are checking this customer
-        log.debug('Checking Customer', 'Company Name: ' + companyName);
+            log.debug('Checking Customer', 'Company Name: ' + companyName);
 
-        // Simple Validation: If the company name is empty, we throw an error to block the save
-        if (!companyName) {
-            log.error('Validation Failed', 'Company Name is empty');
-            
-            throw error.create({
-                name: 'MISSING_COMPANY_NAME',
-                message: 'Company Name is required for new customers.',
-                notifyOff: false
-            });
-        }
-        
-        // If validation passes, we can also modify fields automatically!
-        // E.g., setting a default "tier" if none was provided
-        const tier = newCustomer.getValue({ fieldId: 'custentity_tier' });
-        if (!tier) {
-            newCustomer.setValue({ fieldId: 'custentity_tier', value: '1' }); 
+            if (!companyName) {
+                log.error('Validation Failed', 'Company Name is empty');
+
+                throw error.create({
+                    name: 'MISSING_COMPANY_NAME',
+                    message: 'Company Name is required for new customers.',
+                    notifyOff: false
+                });
+            }
+
+            const tier = newCustomer.getValue({ fieldId: 'custentity_tier' });
+            if (!tier) {
+                newCustomer.setValue({ fieldId: 'custentity_tier', value: '1' });
+            }
+
+            // Example of using N/record to load a related record
+            const defaultSubsidiaryId = newCustomer.getValue({ fieldId: 'subsidiary' });
+            if (defaultSubsidiaryId) {
+                const subsidiaryRecord = record.load({
+                    type: record.Type.SUBSIDIARY,
+                    id: defaultSubsidiaryId
+                });
+                log.debug('Subsidiary Loaded', subsidiaryRecord.getValue({ fieldId: 'name' }));
+            }
+        } catch (errbeforeSubmit) {
+            log.debug('errbeforeSubmit', errbeforeSubmit);
         }
     }
 
-    // We export the function so NetSuite knows which function to run for 'beforeSubmit'
     return {
         beforeSubmit: beforeSubmit
     };

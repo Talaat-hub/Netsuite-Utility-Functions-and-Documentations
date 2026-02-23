@@ -21,10 +21,10 @@ describe('Map/Reduce Script - Invoice Memo', () => {
     // Step 4: Loading the script
     beforeAll(() => {
         global.define = (deps, factory) => {
-            const mod = factory(search, record, log);
-            getInputData = mod.getInputData;
-            map = mod.map;
-            summarize = mod.summarize;
+            const module = factory(search, record, log);
+            getInputData = module.getInputData;
+            map = module.map;
+            summarize = module.summarize;
         };
         require('../src/mr_invoice_memo');
     });
@@ -59,6 +59,18 @@ describe('Map/Reduce Script - Invoice Memo', () => {
 
             // Check that the returned value is what we expected
             expect(result).toBe('fake_search');
+        });
+
+        test('should log try/catch error', () => {
+            // Force search.create to throw an error to trigger the catch block
+            search.create.mockImplementation(() => {
+                throw new Error('Search failed');
+            });
+
+            getInputData();
+
+            expect(log.debug).toHaveBeenCalledWith('Starting Map/Reduce', 'Getting inputs...');
+            expect(log.debug).toHaveBeenCalledWith('errgetInputData', expect.anything());
         });
     });
 
@@ -117,8 +129,8 @@ describe('Map/Reduce Script - Invoice Memo', () => {
             // Action
             map(mapContext);
 
-            // Assertions
-            expect(log.error).toHaveBeenCalledWith('Error processing Invoice 999', 'Database disconnected');
+            // ASSERTION: The script now logs errmap with debug when an error occurs
+            expect(log.debug).toHaveBeenCalledWith('errmap', expect.anything());
         });
     });
 
@@ -147,6 +159,16 @@ describe('Map/Reduce Script - Invoice Memo', () => {
             // Assertions
             expect(log.audit).toHaveBeenCalledWith('Map/Reduce Finished', 'Total processed: 2');
             expect(log.error).toHaveBeenCalledWith('Map Error for key: key456', 'Fake error message');
+        });
+
+        test('should log try/catch error gracefully', () => {
+            // Passing null instead of an object will cause a TypeError when trying to read 
+            // summary.mapSummary, triggering the catch block properly.
+            const mockSummary = null;
+
+            summarize(mockSummary);
+
+            expect(log.debug).toHaveBeenCalledWith('errsummarize', expect.anything());
         });
     });
 });

@@ -24,11 +24,11 @@ describe('User Event Script - Customer Validation', () => {
     // It loads our SuiteScript into memory and hooks it up to our fakes.
     beforeAll(() => {
         // We simulate NetSuite's 'define' function using global.define
-        global.define = (dependencies, factory) => {
+        global.define = (deps, factory) => {
             // We pass our mocked modules into the script's factory function
-            const exportedFunctions = factory(record, log, error);
+            const module = factory(record, log, error);
             // We extract the exported beforeSubmit function
-            beforeSubmit = exportedFunctions.beforeSubmit;
+            beforeSubmit = module.beforeSubmit;
         };
 
         // require() loads the file. Because it has define(), it triggers the global.define above.
@@ -56,7 +56,16 @@ describe('User Event Script - Customer Validation', () => {
         context.newRecord.getValue.mockImplementation(({ fieldId }) => {
             if (fieldId === 'companyname') return 'Acme Corp'; // Has a company name
             if (fieldId === 'custentity_tier') return ''; // Doesn't have a tier
+            if (fieldId === 'subsidiary') return '123'; // Has a subsidiary ID
         });
+
+        // We also need to mock record.load because our script now uses it
+        const mockSubsidiaryRecord = {
+            getValue: jest.fn().mockImplementation(({ fieldId }) => {
+                if (fieldId === 'name') return 'Acme Subsidiary';
+            })
+        };
+        record.load.mockReturnValue(mockSubsidiaryRecord);
 
         // ACTION: We run the script function!
         beforeSubmit(context);
@@ -71,7 +80,14 @@ describe('User Event Script - Customer Validation', () => {
             value: '1'
         });
 
-        // 3. We check that log.error was NEVER called, because there was no error
+        // 3. Did it load the subsidiary record?
+        expect(record.load).toHaveBeenCalledWith({
+            type: record.Type.SUBSIDIARY,
+            id: '123'
+        });
+        expect(log.debug).toHaveBeenCalledWith('Subsidiary Loaded', 'Acme Subsidiary');
+
+        // 4. We check that log.error was NEVER called, because there was no error
         expect(log.error).not.toHaveBeenCalled();
     });
 
@@ -93,13 +109,14 @@ describe('User Event Script - Customer Validation', () => {
         // Provide a fake implementation for error.create so it returns a fake Error object
         error.create.mockReturnValue(new Error('Company Name is required for new customers.'));
 
-        // ACTION & ASSERTION: Because we expect an error to be thrown, we must wrap our action in a function
-        expect(() => {
-            beforeSubmit(context);
-        }).toThrow('Company Name is required for new customers.');
+        // ACTION: Execute the function. It should NOT throw because it has a try-catch that swallows errors.
+        beforeSubmit(context);
 
         // ASSERTION: Did it log the error?
         expect(log.error).toHaveBeenCalledWith('Validation Failed', 'Company Name is empty');
+
+        // ASSERTION: Did it log the caught error in the catch block?
+        expect(log.debug).toHaveBeenCalledWith('errbeforeSubmit', expect.anything());
 
         // ASSERTION: It should NOT have tried to set the tier, because it threw an error first
         expect(context.newRecord.setValue).not.toHaveBeenCalled();

@@ -7,9 +7,11 @@
 // Step 1: Mocking modules. Note we test currentRecord instead of record for client scripts
 jest.mock('N/currentRecord');
 jest.mock('N/ui/dialog');
+jest.mock('N/log');
 
 const currentRecord = require('N/currentRecord');
 const dialog = require('N/ui/dialog');
+const log = require('N/log');
 
 let saveRecord;
 
@@ -17,8 +19,9 @@ describe('Client Script - Discount Validation', () => {
 
     // Step 2: Setup script
     beforeAll(() => {
+        global.log = log; // Ensure log is available even if not imported in the script
         global.define = (deps, factory) => {
-            const mod = factory(currentRecord, dialog);
+            const mod = factory(currentRecord, dialog, log);
             saveRecord = mod.saveRecord;
         };
         require('../src/cs_discount_validation');
@@ -97,5 +100,17 @@ describe('Client Script - Discount Validation', () => {
         // Assertion: Empty subtotal (0) and empty discount (0) means 0 <= 0, which is valid
         expect(result).toBe(true);
         expect(dialog.alert).not.toHaveBeenCalled();
+    });
+
+    test('should handle try/catch error gracefully', () => {
+        // Trigger an error by making currentRecord.get throw
+        currentRecord.get.mockImplementationOnce(() => {
+            throw new Error('Fake error');
+        });
+
+        saveRecord({});
+
+        // Assertion: Check if log.debug was called with the error label
+        expect(log.debug).toHaveBeenCalledWith('errsaveRecord', expect.anything());
     });
 });
