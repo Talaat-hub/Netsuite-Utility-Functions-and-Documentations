@@ -1,6 +1,6 @@
 # Readying up SuiteScript Snippets on VS Code
 
-It is pretty simple and makes your start with a netsuite suitescript project more reliable and faster, You don't have to think of updating the version of the suitescript 2.x for example and you write it as 2.1 at once in a snippet that you will use from now on, preventing you from falling into unnecessary errors because you "forgot🤡" adjusting the built in suitescript snippet.
+It is pretty simple and makes your start with a netsuite suitescript project more reliable and faster, You don't have to think of updating the default snippets every time, you just create your own and use it.
 
 # How to make your own snippet ?
 
