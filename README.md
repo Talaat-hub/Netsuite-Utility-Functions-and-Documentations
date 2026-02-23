@@ -1,81 +1,72 @@
-# NetSuite Utility Functions
+# SuiteScript Usability and Documentations
 
-A collection of reusable utility functions for NetSuite SuiteScript development (2.0 and 2.1).  
-These utilities are designed to speed up development, promote code consistency, and reduce redundancy across SuiteScripts.
-
----
-
-## Features
-
-- Common helper functions for record manipulation, searching, and formatting
-- Compatible with SuiteScript 2.0 and 2.1 modules
-- Organized and documented for ease of use and maintenance
-- Can be imported into RESTlets, Suitelets, Client Scripts, and User Event Scripts
+Welcome to the **SuiteScript Usability and Documentations** repository! This repository provides an extensive collection of utilities, documentation, and testing frameworks designed to enhance your NetSuite SuiteScript development experience.
 
 ---
 
-## Folder Structure
+## 🌟 What This Repository Offers
 
+Whether you are building simple automations or complex enterprise integrations, this repository provides:
+
+1. **Utility Functions**: Reusable, reliable helper functions that reduce code redundancy and speed up development across SuiteScripts (2.0 and 2.1).
+2. **Comprehensive Documentations**: Conceptual and practical guides to integrating Large Language Models (LLMs), managing SuiteCloud Development Framework (SDF), and configuring VS Code with modern snippets.
+3. **Robust Unit Testing Environment**: Everything you need to get started with testing in NetSuite, including a complete beginner-to-advanced guide, pre-configured Jest environments, and mock templates to achieve your 100% coverage goals.
+
+---
+
+## 📂 Folder Structure
+
+The repository is organized into distinct areas mapping to different stages and tools of SuiteScript development.
+
+```text
 /Netsuite-Utility-Functions-and-Documentations/
-
 │
-
-├── [Utility Functions](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Utility%20Functions)
-
+├── Utility Functions/              # Reusable helper scripts for day-to-day SuiteScript development
+│   ├── get_all_data.js             # Safely retrieves >1000 records from search.create() objects
+│   ├── show_top_error.js           # Utilities to present native NetSuite red error banners at the top of the UI
+│   └── amount_to_words.js          # Converts numerical amounts and their sub-units to written words with currency
 │
-
-├── [get_all_data.js](https://github.com/Talaat-hub/Netsuite-Utility-functions/blob/main/Utility%20Functions/get_all_data.js) # Gets more than 1000 records from the search.create() object
-
-├── [show_top_error.js](https://github.com/Talaat-hub/Netsuite-Utility-functions/blob/main/Utility%20Functions/show_top_error.js) # Shows the red netsuite error at top
-
-└── [amount_to_words.js](https://github.com/Talaat-hub/Netsuite-Utility-functions/blob/main/Utility%20Functions/amount_to_words.js) # Convert amount and it's subuint to words with currency
-
+├── Documentations/                 # In-depth guides and practical implementation examples
+│   ├── LLM/                        # Integrations with Large Language Models
+│   │   ├── LLM in Netsuite.md      # Primary documentation for the native N/llm module in SuiteScript 2.1
+│   │   ├── ue_mt_llm_model.js      # Practical User Event script utilizing native N/llm
+│   │   └── Old Documentation/      # Hypothetical docs & practical HTTPS-based Suitelets for external AIs (like Google Gemini)
+│   │
+│   ├── SDF/                        # SuiteCloud Development Framework guides
+│   │   └── SDF CookBook.md         # A crucial VS Code cookbook for mastering SDF deployments and management
+│   │
+│   └── SuiteScript quick start/    # Snippet management
+│       └── suitescript quick start.md # Guide to setting up custom SuiteScript Snippets in VS Code for rapid development
 │
-
-└── [Documentations](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Documentations)
-
+├── Unit Testing/                   # Complete environment and methodology for testing NetSuite scripts locally
+│   ├── Documentation/              
+│   │   └── Unit Testing Full Guide.md # The absolutely essential, comprehensive guide to testing with Jest
+│   ├── src/                        # Source scripts being tested
+│   ├── __tests__/                  # Active test scripts
+│   ├── __mocks__/                  # Pre-configured NetSuite module mocks (N/record, N/search, N/log, etc.)
+│   └── jest.config.js              # Environment configuration for the Jest test runner
 │
+└── .github/                        # GitHub Actions configuration
+    └── workflows/                  # CI/CD Workflows to automate unit testing runs (Required to be located at the repository root by GitHub)
+```
 
-├── [LLM](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Documentations/LLM) # Documentation and examples for LLM integrations
+### 💡 Note on the `.github` Folder
 
-│
-
-├── [LLM in Netsuite.md](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/LLM%20in%20Netsuite.md) # Primary documentation for native N/llm module
-
-├── [ue_mt_llm_model.js](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/ue_mt_llm_model.js) # Practical User Event script using native N/llm
-
-├── [Old Documentation](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Documentations/LLM/Old%20Documentation) # Hypothetical older documentation
-
-│   ├── [ai_cs_using_https.js](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/Old%20Documentation/ai_cs_using_https.js) 
-
-│   ├── [ai_sl_using_https.js](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/Old%20Documentation/ai_sl_using_https.js)
-
-│   ├── [ai_ue_using_https.js](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/Old%20Documentation/ai_ue_using_https.js)
-
-│   └── [LLM Documentation.md](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/blob/main/Documentations/LLM/Old%20Documentation/LLM%20Documentation.md)
-
-│
-
-└── [SDF](https://github.com/Talaat-hub/Netsuite-Utility-Functions-and-Documentations/tree/main/Documentations/SDF) # SDF Usage
-
-└── [SDF CookBook.md](https://github.com/Talaat-hub/Netsuite-Utility-functions/blob/main/SDF/SDF%20CookBook.md) # SuiteCloud Development Framework (useful vscode tool for netsuite)
-
-└── README.md
+The `.github` folder must sit at the root of the repository to be recognized by GitHub Actions. It contains workflows (like `test.yml`) that automatically run the Jest scripts located in the `Unit Testing` folder every time code is pushed.
 
 ---
 
-## Example Usage
+## 🚀 Example Usage
 
-Can be found inside each function
+Specific implementation examples and context-based usages can be found directly inside each utility script file and inside the detailed Markdown guides in the `Documentations` folder.
 
 ---
 
-## Authors
+## 👥 Authors
 
-[Mahmoud Talaat](https://www.linkedin.com/in/mahmoudtalaat21/) – NetSuite Developer
-
-[Kirollos Ayman](https://www.linkedin.com/in/keroloseid/) – NetSuite Developer
+- [Mahmoud Talaat](https://www.linkedin.com/in/mahmoudtalaat21/) – NetSuite Developer
+- [Kirollos Ayman](https://www.linkedin.com/in/keroloseid/) – NetSuite Developer
 
 Feel free to connect or contribute!
 
-Let me know if you have special focus (e.g., SuiteQL, OAuth, or CSV imports) and I’ll tailor it even more!
+Let me know if you have a special focus, and I’ll tailor it even more!
