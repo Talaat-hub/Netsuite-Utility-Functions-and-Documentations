@@ -101,6 +101,8 @@ describe('Client Script - Discount Validation', () => {
         // Assertion: Empty subtotal (0) and empty discount (0) means 0 <= 0, which is valid
         expect(result).toBe(true);
         expect(dialog.alert).not.toHaveBeenCalled();
+
+        // Business-Need wise, this test might be wrong, no invoice can be saved with zero subtotal.
     });
 
     test('should handle try/catch error gracefully', () => {
